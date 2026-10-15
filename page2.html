@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Faiza Bhabi</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+    background: linear-gradient(
+        180deg,
+        #30050f 0%,
+        #5c1729 35%,
+        #9b586b 72%,
+        #f0dce2 100%
+    );
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    animation: fadeIn 1.5s ease;
+    position: relative;
+    z-index: 2;
+}
+
+h1, h2, .wish {
+    color: #f5d58a;
+    font-weight: normal;
+    text-shadow: 0 0 15px #f5d58a55;
+}
+
+h1 {
+    font-size: clamp(30px, 8vw, 43px);
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+h2 {
+    font-size: clamp(27px, 7vw, 36px);
+    margin: 5px 0;
+}
+
+/* CAKE SCENE */
+
+.cake-scene {
+    width: 320px;
+    max-width: 100%;
+    height: 290px;
+    margin: 0 auto;
+    position: relative;
+    animation: cakeFloat 4s ease-in-out infinite;
+}
+
+/* Cake plate */
+
+.plate {
+    position: absolute;
+    bottom: 15px;
+    left: 3%;
+    width: 94%;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(
+        180deg,
+        #fff5df,
+        #c49a5e 45%,
+        #f9e5bd 72%,
+        #8e663d
+    );
+    box-shadow: 0 10px 20px #24040b60;
+}
+
+.plate::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 9%;
+    width: 82%;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff4df;
+}
+
+/* Bottom cake tier */
+
+.tier-bottom {
+    position: absolute;
+    bottom: 35px;
+    left: 12%;
+    width: 76%;
+    height: 102px;
+    border-radius: 12px 12px 20px 20px;
+    background: linear-gradient(
+        90deg,
+        #a64d69,
+        #e9a7bc 13%,
+        #fff0e9 35%,
+        #f4d0d8 55%,
+        #df91ab 83%,
+        #98405d
+    );
+    box-shadow:
+        inset 0 -10px 0 #a94d6b,
+        inset 0 5px 9px #ffffff80,
+        0 7px 12px #3a071630;
+    z-index: 2;
+}
+
+.bottom-filling {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 9px;
+    background: #fff0d9;
+    box-shadow: 0 3px 5px #8d304c40;
+}
+
+.bottom-filling.second {
+    top: auto;
+    bottom: 19px;
+    height: 8px;
+}
+
+/* Top cake tier */
+
+.tier-top {
+    position: absolute;
+    bottom: 119px;
+    left: 23%;
+    width: 54%;
+    height: 65px;
+    border-radius: 10px 10px 15px 15px;
+    background: linear-gradient(
+        90deg,
+        #b9607c,
+        #f7cbd6 18%,
+        #fff1e9 45%,
+        #efb4c6 75%,
+        #a94d6a
+    );
+    box-shadow:
+        inset 0 -7px 0 #c77994,
+        inset 0 4px 7px #ffffffa0,
+        0 3px 7px #39081740;
+    z-index: 3;
+}
+
+.top-filling {
+    position: absolute;
+    top: 22px;
+    width: 100%;
+    height: 7px;
+    background: #fff3de;
+}
+
+/* Frosting */
+
+.frosting-bottom {
+    position: absolute;
+    z-index: 4;
+    bottom: 125px;
+    left: 11%;
+    width: 78%;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(
+        180deg,
+        #fffaf0,
+        #ffe4e8 70%,
+        #dca1b4
+    );
+    box-shadow: inset 0 4px 6px #ffffffa0;
+}
+
+.frosting-top {
+    position: absolute;
+    z-index: 5;
+    bottom: 169px;
+    left: 22%;
+    width: 56%;
+    height: 43px;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at 50% 25%,
+        #fffaf0,
+        #ffe8e8 55%,
+        #e6a8bc 100%
+    );
+    box-shadow: inset 0 4px 7px #ffffffb0;
+}
+
+/* Cream decorations */
+
+.rosette {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    z-index: 6;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 30%,
+        #fffef4,
+        #ffe8dc 60%,
+        #d7a1ac
+    );
+    box-shadow:
+        inset -2px -2px 4px #d4a1ad60,
+        0 2px 3px #6c263640;
+}
+
+.r1 { left: 15%; bottom: 128px; }
+.r2 { left: 30%; bottom: 126px; }
+.r3 { left: 45%; bottom: 128px; }
+.r4 { left: 60%; bottom: 126px; }
+.r5 { left: 75%; bottom: 128px; }
+
+.r6 { left: 27%; bottom: 174px; }
+.r7 { left: 43%; bottom: 180px; }
+.r8 { left: 59%; bottom: 174px; }
+
+/* Golden pearls */
+
+.pearl {
+    position: absolute;
+    z-index: 7;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 25%,
+        #fff1a8,
+        #c28b2d
+    );
+    box-shadow: 0 0 3px #eac36b80;
+}
+
+.p1 { left: 23%; bottom: 151px; }
+.p2 { left: 38%; bottom: 151px; }
+.p3 { left: 53%; bottom: 151px; }
+.p4 { left: 68%; bottom: 151px; }
+
+/* Candles */
+
+.candle {
+    position: absolute;
+    z-index: 10;
+    bottom: 193px;
+    width: 15px;
+    height: 49px;
+    padding: 0;
+    border: 1px solid #c99a43;
+    border-radius: 4px 4px 2px 2px;
+    background: repeating-linear-gradient(
+        135deg,
+        #fff2cc 0px,
+        #fff2cc 5px,
+        #d7a94f 5px,
+        #d7a94f 8px
+    );
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.c1 { left: 36%; }
+.c2 { left: 48%; height: 57px; }
+.c3 { left: 60%; }
+
+.flame {
+    position: absolute;
+    left: 2px;
+    top: -23px;
+    width: 10px;
+    height: 19px;
+    border-radius: 55% 45% 50% 50%;
+    background: radial-gradient(
+        ellipse at 50% 70%,
+        #fffde4 0%,
+        #ffdf62 38%,
+        #ff9a32 72%,
+        #e94b19 100%
+    );
+    box-shadow:
+        0 0 10px #ffbd46,
+        0 0 22px #ff9a2f80;
+    pointer-events: none;
+    animation: flicker .55s infinite alternate;
+}
+
+.candle.blown .flame {
+    display: none;
+}
+
+.candle.blown::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 5px;
+    width: 5px;
+    height: 14px;
+    background: #ded0ce;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: smoke 1s ease-out forwards;
+}
+
+/* Instruction and wish */
+
+.instruction {
+    min-height: 22px;
+    margin: 2px 0 17px;
+    color: #ffe9b5;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+.wish {
+    font-size: clamp(22px, 5.5vw, 27px);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* ONE NEXT BUTTON */
+
+.next-btn {
+    display: inline-block;
+    padding: 13px 39px;
+    border: 1px solid #e6c276;
+    border-radius: 35px;
+    background: #410c1bcc;
+    color: #f5d58a;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.next-btn:hover {
+    background: #e6c276;
+    color: #40101b;
+    box-shadow: 0 0 25px #ffd78c80;
+    transform: translateY(-3px);
+}
+
+/* Background stars */
+
+.star {
+    position: fixed;
+    color: #ffe5a0;
+    pointer-events: none;
+    animation: twinkle 2s infinite alternate;
+}
+
+.s1 { top: 12%; left: 10%; font-size: 20px; }
+.s2 { top: 25%; right: 9%; font-size: 17px; }
+.s3 { bottom: 20%; left: 7%; font-size: 18px; }
+.s4 { bottom: 12%; right: 10%; font-size: 21px; }
+
+/* Animations */
+
+@keyframes flicker {
+    from { transform: rotate(-5deg) scale(.94); }
+    to { transform: rotate(5deg) scale(1.08); }
+}
+
+@keyframes cakeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes smoke {
+    from { opacity: .7; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-18px) scale(1.8); }
+}
+
+@keyframes twinkle {
+    from { opacity: .3; transform: scale(.8); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 360px) {
+    .cake-scene {
+        transform: scale(.9);
+        transform-origin: top center;
+        margin-bottom: -25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<span class="star s1">✦</span>
+<span class="star s2">✧</span>
+<span class="star s3">✦</span>
+<span class="star s4">✧</span>
+
+<main class="container">
+
+    <h1>HAPPY BIRTHDAY</h1>
+    <h2>FIZA BHABI</h2>
+
+    <div class="cake-scene">
+
+        <div class="plate"></div>
+
+        <div class="tier-bottom">
+            <div class="bottom-filling"></div>
+            <div class="bottom-filling second"></div>
+        </div>
+
+        <div class="tier-top">
+            <div class="top-filling"></div>
+        </div>
+
+        <div class="frosting-bottom"></div>
+        <div class="frosting-top"></div>
+
+        <div class="rosette r1"></div>
+        <div class="rosette r2"></div>
+        <div class="rosette r3"></div>
+        <div class="rosette r4"></div>
+        <div class="rosette r5"></div>
+        <div class="rosette r6"></div>
+        <div class="rosette r7"></div>
+        <div class="rosette r8"></div>
+
+        <div class="pearl p1"></div>
+        <div class="pearl p2"></div>
+        <div class="pearl p3"></div>
+        <div class="pearl p4"></div>
+
+        <button class="candle c1" type="button"
+            aria-label="Blow out candle"
+            onclick="blowCandle(this)">
+            <span class="flame"></span>
+        </button>
+
+        <button class="candle c2" type="button"
+            aria-label="Blow out candle"
+            onclick="blowCandle(this)">
+            <span class="flame"></span>
+        </button>
+
+        <button class="candle c3" type="button"
+            aria-label="Blow out candle"
+            onclick="blowCandle(this)">
+            <span class="flame"></span>
+        </button>
+
+    </div>
+
+    <p class="instruction" id="instruction">
+        ✨ Tap the candles to blow them out ✨
+    </p>
+
+    <p class="wish">
+        Every Beautiful<br>
+        Wish Come True ✨
+    </p>
+
+    <!-- This button opens Page 3 -->
+    <a href="page3.html" class="next-btn">Next ✨</a>
+
+</main>
+
+<script>
+function blowCandle(candle) {
+    if (candle.classList.contains("blown")) return;
+
+    candle.classList.add("blown");
+    candle.disabled = true;
+
+    const candles = document.querySelectorAll(".candle");
+
+    const allBlown = Array.from(candles).every(
+        item => item.classList.contains("blown")
+    );
+
+    document.getElementById("instruction").textContent = allBlown
+        ? "All candles are out! Make a beautiful wish! 💗"
+        : "One candle blown out! Keep going ✨";
+}
+</script>
+
+</body>
+</html>

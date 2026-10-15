@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Special Envelope 💌</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #160810,
+        #570d27,
+        #250916,
+        #090609
+    );
+    color: white;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #f7d887;
+    font-size: clamp(30px, 7vw, 45px);
+    text-shadow: 0 0 15px #d6a53f;
+    margin-bottom: 12px;
+    animation: glow 2s infinite alternate;
+}
+
+.subtitle {
+    color: #f5d5df;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 45px;
+}
+
+.envelope-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 220px;
+}
+
+.envelope {
+    position: relative;
+    width: min(280px, 78vw);
+    height: 175px;
+    background: #a30d32;
+    border: 1px solid #e6a0b4;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(247, 216, 135, 0.2);
+    animation: float 3s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #720b25;
+    border-radius: 5px;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #a30d32;
+    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+    z-index: 2;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        #d63d65,
+        #8b0b2a
+    );
+    clip-path: polygon(0 0, 100% 0, 50% 62%);
+    transform-origin: top;
+    transition: transform 0.7s ease;
+    z-index: 3;
+}
+
+.seal {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #ffe7a0,
+        #b9822e
+    );
+    color: #720b25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    box-shadow: 0 0 15px rgba(247, 216, 135, 0.6);
+    transition: opacity 0.4s ease;
+}
+
+.envelope.opening .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.opening .seal {
+    opacity: 0;
+}
+
+.instruction {
+    margin-top: 30px;
+    color: #f7d887;
+    font-size: 16px;
+    letter-spacing: 1px;
+    animation: glow 2s infinite alternate;
+}
+
+button {
+    margin-top: 22px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 1px solid #f7d887;
+    background: transparent;
+    color: #f7d887;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #f7d887;
+    color: #570d27;
+    box-shadow: 0 0 18px #f7d887;
+}
+
+.heart {
+    position: fixed;
+    color: #e6a0b4;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: sparkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #d6a53f;
+    }
+    to {
+        text-shadow: 0 0 18px #f7d887;
+    }
+}
+
+@keyframes sparkle {
+    from {
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 480px) {
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .envelope-area {
+        height: 200px;
+    }
+
+    .envelope {
+        height: 150px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>A Special Message 💌</h1>
+
+    <p class="subtitle">
+        There's something special waiting for you...<br>
+        Open the envelope!
+    </p>
+
+    <div class="envelope-area">
+
+        <div class="envelope" id="envelope"
+             onclick="openEnvelope()">
+
+            <div class="envelope-back"></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
+
+            <div class="seal">♥</div>
+
+        </div>
+
+    </div>
+
+    <p class="instruction">
+        Click the envelope ✨
+    </p>
+
+    <button onclick="openEnvelope()">
+        Open Envelope ♥
+    </button>
+
+</div>
+
+<script>
+let opened = false;
+
+function openEnvelope() {
+    if (opened) return;
+
+    opened = true;
+
+    const envelope = document.getElementById("envelope");
+
+    envelope.classList.add("opening");
+
+    setTimeout(function() {
+        window.location.href = "page6.html";
+    }, 1000);
+}
+
+// Floating decorative hearts
+for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.textContent = "♥";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.top = Math.random() * 100 + "%";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+    heart.style.animationDelay = Math.random() * 3 + "s";
+
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
